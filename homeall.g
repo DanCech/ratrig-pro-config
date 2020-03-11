@@ -4,7 +4,7 @@
 M400                    ; make sure everything has stopped before we make changes
 
 M574 X1 Y1 S3           ; set endstops to use motor stall
-M913 X75 Y75            ; drop motor currents to 75%
+M913 X60 Y60            ; drop motor currents to 60%
 M915 X Y S2 F0 R0       ; set sensitivity to +2 unfiltered
 
 G91                     ; use relative positioning
@@ -26,5 +26,5 @@ M400                    ; make sure everything has stopped before we reset the m
 M913 X100 Y100          ; motor currents back to 100%
 M915 X Y S5 F0 R2       ; set sensitivity to +5 and enable auto-pause
 
-G1 X150 Y150 F6000      ; go to first bed probe point and home Z
+G1 X120 Y150 F9000      ; go to first bed probe point and home Z
 G30                     ; home Z by probing the bed
