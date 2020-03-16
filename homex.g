@@ -4,7 +4,7 @@
 M400                    ; make sure everything has stopped before we make changes
 
 M574 X1 Y1 S3           ; set endstops to use motor stall
-M913 X60 Y60            ; drop motor currents to 60%
+M913 X30 Y30            ; drop motor currents to 30%
 M915 X Y S2 F0 R0       ; set sensitivity to +2 unfiltered
 
 G91                     ; use relative positioning

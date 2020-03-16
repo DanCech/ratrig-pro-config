@@ -16,12 +16,12 @@ M569 P0.3 S1                                 ; physical drive 0.3 goes forwards
 M569 P0.4 S1                                 ; physical drive 0.4 goes forwards
 M569 P0.5 S0                                 ; physical drive 0.5 goes backwards
 M584 X0.4 Y0.3 Z0.0:0.1:0.2 E0.5             ; set drive mapping
-M350 X16 Y16 Z16 E8 I1                       ; configure microstepping with interpolation
-M92 X80.00 Y80.00 Z400.00 E430.00            ; set steps per mm
+M350 X16 Y16 Z16 E16 I1                      ; configure microstepping with interpolation
+M92 X80.00 Y80.00 Z400.00 E840.00            ; set steps per mm
 M566 X900.00 Y900.00 Z180.00 E120.00         ; set maximum instantaneous speed changes (mm/min)
 M203 X6000.00 Y6000.00 Z1200.00 E1200.00     ; set maximum speeds (mm/min)
 M201 X500.00 Y500.00 Z100.00 E200.00         ; set accelerations (mm/s^2)
-M906 X1000 Y1000 Z1000 E1000 I30             ; set motor currents (mA) and motor idle factor in percent
+M906 X2000 Y2000 Z2000 E1200 I15             ; set motor currents (mA) and motor idle factor in percent
 M84 S30                                      ; Set idle timeout
 
 ; Axis Limits
@@ -39,7 +39,7 @@ M671 X332:-32:150 Y90:90:370 S10             ; right, left, back
 ; Z-Probe
 M950 S0 C"io7.out"                           ; create servo pin 0 for BLTouch
 M558 P9 C"io7.in" H5 F180 T9000              ; set Z probe type to bltouch and the dive height + speeds
-G31 P500 X27 Y1 Z3.6                         ; set Z probe trigger value, offset and trigger height
+G31 P500 X27 Y1 Z3.54                        ; set Z probe trigger value, offset and trigger height
 M557 X30:270 Y10:290 S40                     ; define mesh grid
 
 ; Heaters
