@@ -16,17 +16,17 @@ M569 P0.3 S1                                 ; physical drive 0.3 goes forwards
 M569 P0.4 S1                                 ; physical drive 0.4 goes forwards
 M569 P0.5 S0                                 ; physical drive 0.5 goes backwards
 M584 X0.4 Y0.3 Z0.0:0.1:0.2 E0.5             ; set drive mapping
-M350 X16 Y16 Z16 E16 I1                      ; configure microstepping with interpolation
-M92 X80.00 Y80.00 Z400.00 E840.00            ; set steps per mm
-M566 X900.00 Y900.00 Z180.00 E120.00         ; set maximum instantaneous speed changes (mm/min)
-M203 X6000.00 Y6000.00 Z1200.00 E1200.00     ; set maximum speeds (mm/min)
-M201 X500.00 Y500.00 Z100.00 E200.00         ; set accelerations (mm/s^2)
+M350 X32 Y32 Z16 E16 I1                      ; configure microstepping with interpolation
+M92 X160.00 Y160.00 Z400.00 E830.00          ; set steps per mm
+M566 X900.00 Y900.00 Z12.00 E120.00          ; set maximum instantaneous speed changes (mm/min)
+M203 X6000.00 Y6000.00 Z180.00 E1200.00      ; set maximum speeds (mm/min)
+M201 X500.00 Y500.00 Z20.00 E250.00          ; set accelerations (mm/s^2)
 M906 X2000 Y2000 Z2000 E1200 I15             ; set motor currents (mA) and motor idle factor in percent
 M84 S30                                      ; Set idle timeout
 
 ; Axis Limits
 M208 X0 Y0 Z0 S1                             ; set axis minima
-M208 X300 Y300 Z300 S0                       ; set axis maxima
+M208 X290 Y290 Z300 S0                       ; set axis maxima
 
 ; Endstops
 M574 X1 S3                                   ; configure sensorless endstop for low end on X
@@ -34,13 +34,13 @@ M574 Y1 S3                                   ; configure sensorless endstop for 
 M574 Z1 S2                                   ; configure Z-probe endstop for low end on Z
 
 ; Z leadscrew positions
-M671 X332:-32:150 Y90:90:370 S10             ; right, left, back
+M671 X330:-40:144 Y74:74:354 S10             ; right, left, back
 
 ; Z-Probe
 M950 S0 C"io7.out"                           ; create servo pin 0 for BLTouch
 M558 P9 C"io7.in" H5 F180 T9000              ; set Z probe type to bltouch and the dive height + speeds
-G31 P500 X27 Y1 Z3.54                        ; set Z probe trigger value, offset and trigger height
-M557 X30:270 Y10:290 S40                     ; define mesh grid
+G31 P500 X-25 Y0 Z2.25                       ; set Z probe trigger value, offset and trigger height
+M557 X30:270 Y30:270 S40                     ; define mesh grid
 
 ; Heaters
 M308 S0 P"temp0" Y"thermistor" T100000 B4138 ; configure sensor 0 as thermistor on pin temp0
