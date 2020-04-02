@@ -1,5 +1,5 @@
-; homex.g
-; called to home the X axis
+; rehome.g
+; called to rehome X and Y axes
 
 M400                    ; make sure everything has stopped before we make changes
 
@@ -16,7 +16,10 @@ G1 H1 X-400 F2500       ; move X all the way left and stop at end
 G1 X5                   ; move to edge of glass
 G92 X0                  ; set X0 at edge of glass
 
-G1 H2 Z-5 F6000         ; lower Z again
+G1 H1 Y-400 F2500       ; move Y all the way forward and stop at end
+
+G1 Y30                  ; move to edge of glass
+G92 Y0                  ; set Y0 at edge of glass
 
 G90                     ; back to absolute positioning
 M400                    ; make sure everything has stopped before we reset the motor currents

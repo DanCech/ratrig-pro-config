@@ -21,4 +21,4 @@ G1 H2 Z-5 F6000         ; lower Z again
 G90                     ; back to absolute positioning
 M400                    ; make sure everything has stopped before we reset the motor currents
 M913 X100 Y100          ; motor currents back to 100%
-M915 X Y S5 F0 R2       ; set sensitivity to +5 and enable auto-pause
+M915 X Y S5 F0 R3       ; set sensitivity to +5 and enable auto-rehome
