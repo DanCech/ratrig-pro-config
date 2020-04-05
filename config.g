@@ -17,16 +17,16 @@ M569 P0.4 S1                                 ; physical drive 0.4 goes forwards
 M569 P0.5 S0                                 ; physical drive 0.5 goes backwards
 M584 X0.4 Y0.3 Z0.0:0.1:0.2 E0.5             ; set drive mapping
 M350 X16 Y16 Z16 E16 I1                      ; configure microstepping with interpolation
-M92 X80.00 Y80.00 Z400.00 E830.00            ; set steps per mm
+M92 X80.00 Y80.00 Z1600.00 E830.00           ; set steps per mm
 M566 X900.00 Y900.00 Z12.00 E120.00          ; set maximum instantaneous speed changes (mm/min)
-M203 X6000.00 Y6000.00 Z180.00 E1200.00      ; set maximum speeds (mm/min)
-M201 X1000.00 Y1000.00 Z20.00 E250.00        ; set accelerations (mm/s^2)
+M203 X9000.00 Y9000.00 Z300.00 E1200.00      ; set maximum speeds (mm/min)
+M201 X1000.00 Y1000.00 Z30.00 E250.00        ; set accelerations (mm/s^2)
 M906 X2000 Y2000 Z1500 E1000 I15             ; set motor currents (mA) and motor idle factor in percent
 M84 S30                                      ; Set idle timeout
 
 ; Axis Limits
-M208 X0 Y0 Z0 S1                             ; set axis minima
-M208 X290 Y290 Z300 S0                       ; set axis maxima
+M208 X0 Y-40 Z0 S1                           ; set axis minima
+M208 X295 Y270 Z300 S0                       ; set axis maxima
 
 ; Endstops
 M574 X1 S3                                   ; configure sensorless endstop for low end on X
@@ -34,7 +34,7 @@ M574 Y1 S3                                   ; configure sensorless endstop for 
 M574 Z1 S2                                   ; configure Z-probe endstop for low end on Z
 
 ; Z leadscrew positions
-M671 X330:-40:144 Y74:74:354 S10             ; right, left, back
+M671 X309:-11:-11 Y155:0:310 S10            ; right, left front, left rear
 
 ; Z-Probe
 M950 S0 C"io7.out"                           ; create servo pin 0 for BLTouch

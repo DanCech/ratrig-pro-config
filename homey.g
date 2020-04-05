@@ -13,7 +13,7 @@ G1 H2 Z5 F6000          ; lift Z relative to current position
 
 G1 H1 Y-400 F2500       ; move Y all the way forward and stop at end
 
-G1 Y30                  ; move to edge of glass
+G1 Y48                  ; move to edge of glass
 G92 Y0                  ; set Y0 at edge of glass
 
 G1 H2 Z-5 F6000         ; lower Z again
@@ -21,4 +21,4 @@ G1 H2 Z-5 F6000         ; lower Z again
 G90                     ; back to absolute positioning
 M400                    ; make sure everything has stopped before we reset the motor currents
 M913 X100 Y100          ; motor currents back to 100%
-M915 X Y S5 F0 R3       ; set sensitivity to +5 and enable auto-rehome
+M915 X Y S5 F0 R2       ; set sensitivity to +5 and enable auto-pause
